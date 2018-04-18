@@ -1,5 +1,5 @@
 defmodule ExAws.Transcribe do
-  import ExAws.Utils, only: [camelize_keys: 1]
+  import ExAws.Utils, only: [camelize_keys: 2]
 
   @namespace "Transcribe"
 
@@ -29,7 +29,7 @@ defmodule ExAws.Transcribe do
   defp normalize_opts(opts) do
     opts
     |> Map.new
-    |> camelize_keys
+    |> camelize_keys(deep: true)
   end
 
   defp request(action, data, opts \\ []) do
